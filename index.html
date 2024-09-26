@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  />
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check" />
+      <div class="logo">
+        <img class="nav-logo" src="images.jpg"/>
+        <h1 class="nav-logo-h1">MusicX</h1>
+      </div>
+      
+      <ul>
+        <form role="search" id="form">
+          <input type="search" id="query" name="q"
+           placeholder="Search..."
+           aria-label="Search through site content">
+        
+            <input type="button"value="search"onclick="search()">
+        
+        </form>
+      
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Artists.html">Artists</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+      <label for="check" id="checkbtn">
+        <i class="fa fa-bars"></i>
+      </label>
+    </nav>
+    <div class="music-player">
+      <div class="categories-main-container">
+        <div class="categories">
+          <h1 class="categories-heading-text">Categories</h1>
+          <button class="category btn-bolly" onclick="changeCategory('bollywood')">
+            <span class="ctg-btn-eff">Bollywood</span>
+          </button>
+          <button class="category btn-holly" onclick="changeCategory('hollywood')">
+            <span class="ctg-btn-eff"> Hollywood</span>
+          </button>
+          <button class="category btn-tolly" onclick="changeCategory('tollywood')">
+            <span class="ctg-btn-eff">Tollywood</span>
+          </button>
+        </div>
+        <div class="songs">
+          <div class="song-child-container">
+            <h2>Playlist</h2>
+            <div class="songlist-child">
+            <ul id="songList" class="songlist">
+              <!-- Songs will be added dynamically using JavaScript -->
+            </ul>
+          </div>
+          </div>
+        </div>
+        <div class="audio-player-container">
+          <h1 class="musicplayer-heading-text">Music Player</h1>
+        <div class="card">
+          <div class="content">
+            <h1>Playing Music</h1>
+            <div class="music-player-img-div">
+              <img class="music-player-img" src="" alt="">
+            </div>
+            <p id="currentSongName">No song playing</p>
+            <audio controls id="audioPlayer">
+              Your browser does not support the audio element.
+            </audio> 
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

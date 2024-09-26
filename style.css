@@ -1,0 +1,392 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('beats3.gif');
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+image {
+  opacity: 1;
+}
+ul {
+  list-style-type: none;
+}
+
+/* navbar */
+nav {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background: rgb(7, 7, 44);
+  z-index: 100;
+}
+
+nav ul {
+  flex: 2;
+  display: flex;
+  justify-content: right;
+  margin-right: 20px;
+}
+i {
+  color: #fff;
+  cursor: pointer;
+  margin-right: 14px;
+}
+
+nav .logo {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  color: white;
+  gap: 20px;
+}
+.nav-logo {
+  width: 60px;
+  border-radius: 8px;
+}
+.nav-logo-h1 {
+  font-weight: 700;
+  font-size: 35px;
+}
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  padding: 0px 10px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 10px;
+}
+nav ul li a:hover {
+  border-bottom: 2px solid #f91d33;
+  color: #f91d33;
+}
+#checkbtn {
+  float: right;
+  display: none;
+  margin-right: 10px;
+}
+#check {
+  display: none;
+}
+
+@media (max-width: 1020px) {
+  #checkbtn {
+    font-size: 2em;
+    display: block;
+  }
+
+  nav ul {
+    position: fixed;
+    width: 100%;
+    height: 50vh;
+    top: 100px;
+    background: rgb(7, 7, 44);
+    right: 100%;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    display: block;
+  }
+  #check:checked ~ ul {
+    right: -20px;
+  }
+}
+
+/* body container  */
+.music-player {
+  width: 100%;
+  border-radius: 10px;
+  padding-top: 100px;
+}
+
+.categories-main-container {
+  display: flex;
+  justify-content: space-between;
+}
+.categories {
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+  width: 300px;
+  height: 80%;
+  gap: 24px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-right: 2px solid #f92a2f;
+}
+
+.category {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #0a0546;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 120px;
+  border: 1px solid white;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.songs {
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  width: 60%;
+  padding-top: 10px;
+  overflow-y: scroll;
+  height: 480px;
+  padding-bottom: 20px;
+}
+
+.songlist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+.song-button {
+  padding: 10px;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #010225;
+  width: 100%;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song-image {
+  width: 50px;
+  height: 50px;
+  margin-left: 40px;
+}
+
+.song-button > * {
+  margin-right: 10px; /* Adjust the value as needed */
+}
+
+.song-image {
+  width: 50px; /* Set a fixed width for the image */
+}
+
+.song-name {
+  flex: 1; /* Allow the song name to take up remaining space */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* Add ellipsis for long names */
+}
+
+@media (max-width: 1115px) {
+  .categories-main-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 40px;
+    align-items: center;
+  }
+  .categories {
+    height: auto;
+    border-right: none;
+  }
+  .audio-player-container {
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+}
+
+.audio-player-container {
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #212121;
+  border: 2px solid #313131;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: #e8e8e8;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .heading {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.content .para {
+  line-height: 1.5;
+}
+
+.content .btn {
+  color: #e8e8e8;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: #0974f1;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
+  border-color: #0974f1;
+}
+
+.content .btn:hover {
+  outline: 2px solid #e8e8e8;
+  background: transparent;
+  color: #e8e8e8;
+}
+
+.content .btn:active {
+  box-shadow: none;
+}
+
+.categories-heading-text {
+  margin-left: 10px;
+  font-size: 25px;
+}
+.musicplayer-heading-text {
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0a0527;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #212138;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 650px) {
+  .songs {
+    width: 100%;
+  }
+}
+
+.btn-bolly {
+  background-image: url("bolly.jpg"); /* Set your desired image path */
+  background-size: cover; /* Ensure the background image covers the entire button */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center; /* Center the background image */
+}
+
+.btn-holly {
+  background-image: url("holly.jpg"); /* Set your desired image path */
+  background-size: cover; /* Ensure the background image covers the entire button */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center; /* Center the background image */
+}
+.btn-tolly {
+  background-image: url("tolly.jpg"); /* Set your desired image path */
+  background-size: cover; /* Ensure the background image covers the entire button */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center; /* Center the background image */
+}
+
+.section-padding {
+  padding-top: 100px;
+}
+
+.about-container {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #07082b;
+}
+
+.about-heading {
+  font-size: 50px;
+  margin-top: 30px;
+}
+
+.about-para {
+  max-width: 700px;
+  text-align: justify;
+  margin-top: 40px;
+  line-height: 1.8;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.music-player-img {
+  width: 150px;
+  height: 150px;
+  margin-top: 10px;
+}
+
+#currentSongName {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  line-height: 1.8;
+}
+
+.ctg-btn-eff{
+    background-color: black;
+    opacity: 0.9;
+    padding: 8px;
+    border-radius: 6px;
+}
